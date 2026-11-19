@@ -7,7 +7,7 @@ import Alert from './components/Alert.jsx';
 import MemberList from './components/MemberList.jsx';
 import { Expenses, BulkSet, AddMember } from './components/Forms.jsx';
 import Grid from './components/Grid.jsx';
-import { Reminder, Backup } from './components/SettingsBackup.jsx';
+import { Backup } from './components/SettingsBackup.jsx';
 import ImageModal from './components/ImageModal.jsx';
 
 const cur = ym(new Date());
@@ -214,7 +214,7 @@ function Main() {
         <div className="scroll"><Grid members={data.members} pay={data.pay} /></div>
       </div>
 
-      <Reminder settings={settings} onChange={updateSettings} />
+      {/* <Reminder settings={settings} onChange={updateSettings} /> */}
       <Backup onExport={exportBackup} onImport={importBackup} />
 
       {preview && (
