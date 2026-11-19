@@ -1,38 +1,564 @@
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#f6f7f4;--card:#fff;--tx:#1d2420;--mu:#68716b;--bd:#dfe4dd;--ac:#1f7a4d;--acx:#fff;--bad:#c0392b;--badbg:#fdecea;--okbg:#e6f4ea}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#151a17;--card:#1e2521;--tx:#e8ede9;--mu:#9aa59d;--bd:#2f3832;--ac:#4cc58a;--acx:#0d1a12;--bad:#ff8a7a;--badbg:#3a1f1c;--okbg:#17301f}}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#151a17;--card:#1e2521;--tx:#e8ede9;--mu:#9aa59d;--bd:#2f3832;--ac:#4cc58a;--acx:#0d1a12;--bad:#ff8a7a;--badbg:#3a1f1c;--okbg:#17301f}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Noto Sans Bengali","Segoe UI",sans-serif;line-height:1.5}
-main{max-width:760px;margin:0 auto;padding:14px}
-h1{font-size:1.3rem;margin:4px 0 12px}
-h2{font-size:1.02rem;margin:0 0 10px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-input,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;min-width:0}
-input{flex:1 1 120px}textarea{width:100%;min-height:70px}
-button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:7px 12px}
-button:disabled{opacity:.6;cursor:default}
-button.p{background:var(--ac);color:var(--acx);border-color:var(--ac);font-weight:600}
-button.s{padding:4px 9px;font-size:.85rem}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.stat{background:var(--bg);border-radius:10px;padding:10px;text-align:center}
-.stat b{display:block;font-size:1.2rem}.stat span{font-size:.78rem;color:var(--mu)}
-.m{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--bd);flex-wrap:wrap}
-.m:first-of-type{border-top:0}
-.tag{font-size:.78rem;border-radius:99px;padding:2px 9px;font-weight:600}
-.ok{background:var(--okbg);color:var(--ac)}.no{background:var(--badbg);color:var(--bad)}
-.mu{color:var(--mu);font-size:.85rem}
-.alert{background:var(--badbg);border:1px solid var(--bad);border-radius:12px;padding:12px;margin-bottom:14px}
-.scroll{overflow-x:auto}
-table{border-collapse:collapse;font-size:.85rem;width:100%}
-th,td{padding:5px 8px;border-bottom:1px solid var(--bd);text-align:center;white-space:nowrap}
-th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--card)}
-.y{color:var(--ac);font-weight:700}.n{color:var(--bad);font-weight:700}
-.banner{width:100%;height:auto;border-radius:10px;margin-bottom:10px;display:block}
-.overlay{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.85);overflow:auto;padding:16px;text-align:center}
-.overlay img{max-width:100%;border-radius:8px;background:#fff}
-.overlay a{background:#1f7a4d;color:#fff;padding:9px 16px;border-radius:8px;text-decoration:none;margin-right:8px;display:inline-block}
-.login{max-width:360px;margin:12vh auto;padding:0 14px}
-.err{color:var(--bad);font-size:.9rem;margin-top:8px}
+
+/* ============================================
+   PALANGPUR AMAR SMRITI SANGHA
+   ROYAL MAROON & ANTIQUE GOLD THEME
+============================================ */
+
+:root {
+  box-sizing: border-box;
+
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Main palette */
+  --bg: #FBF5E9;
+  --card: #FFFFFF;
+  --tx: #451218;
+  --mu: #866D5C;
+  --bd: #E7D5B2;
+
+  /* Brand colors */
+  --ac: #741B25;
+  --acx: #FFF4DC;
+  --gold: #D6A94F;
+  --gold-light: #E8C778;
+  --gold-soft: #F8EBD2;
+  --maroon-dark: #480C13;
+
+  /* Status colors */
+  --bad: #A52C32;
+  --badbg: #FCEBE8;
+  --okbg: #EAF3E8;
+  --ok: #34734B;
+
+  /* Shadows */
+  --shadow: 0 3px 14px rgba(72, 12, 19, 0.08);
+  --shadow-hover: 0 6px 20px rgba(72, 12, 19, 0.13);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+}
+
+/* ============================================
+   MAIN LAYOUT
+============================================ */
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+/* ============================================
+   BANNER
+============================================ */
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 16px rgba(72, 12, 19, 0.15);
+}
+
+/* ============================================
+   HEADINGS
+============================================ */
+
+h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 4px 0 14px;
+  padding: 13px 15px;
+  color: var(--gold-light);
+  background: var(--ac);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ac);
+  margin: 0 0 10px;
+}
+
+/* ============================================
+   CARDS
+============================================ */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease;
+}
+
+.card h2 {
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: 12px;
+}
+
+/* ============================================
+   ROWS
+============================================ */
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ============================================
+   INPUTS
+============================================ */
+
+input,
+textarea {
+  font: inherit;
+  color: var(--tx);
+  background: #FFFCF6;
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-width: 0;
+  accent-color: var(--ac);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input {
+  flex: 1 1 120px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(214, 169, 79, 0.18);
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--bd);
+  background: var(--card);
+  color: var(--ac);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Primary buttons */
+button.p {
+  background: var(--ac);
+  color: var(--acx);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+button.p:hover:not(:disabled) {
+  background: var(--maroon-dark);
+  color: var(--gold-light);
+}
+
+/* Small buttons */
+button.s {
+  padding: 4px 9px;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   DASHBOARD STATISTICS
+============================================ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.stat {
+  background: var(--gold-soft);
+  border: 1px solid #EAD8B4;
+  border-bottom: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 11px 8px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.stat b {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--ac);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.stat span {
+  font-size: 0.78rem;
+  color: var(--mu);
+  font-weight: 500;
+}
+
+/* ============================================
+   MEMBER LIST
+============================================ */
+
+.m {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 0;
+  border-top: 1px solid var(--bd);
+  flex-wrap: wrap;
+}
+
+.m:first-of-type {
+  border-top: 0;
+}
+
+/* ============================================
+   PAYMENT STATUS TAGS
+============================================ */
+
+.tag {
+  font-size: 0.78rem;
+  border-radius: 99px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+.ok {
+  background: var(--okbg);
+  color: var(--ok);
+}
+
+.no {
+  background: var(--badbg);
+  color: var(--bad);
+}
+
+/* ============================================
+   TEXT
+============================================ */
+
+.mu {
+  color: var(--mu);
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   ALERTS
+============================================ */
+
+.alert {
+  background: var(--badbg);
+  color: #7D2525;
+  border: 1px solid #E8B5A9;
+  border-left: 4px solid var(--bad);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+/* ============================================
+   TABLES
+============================================ */
+
+.scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  width: 100%;
+  background: var(--card);
+}
+
+th,
+td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--bd);
+  text-align: center;
+  white-space: nowrap;
+}
+
+th {
+  background: var(--ac);
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+td {
+  color: var(--tx);
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: var(--card);
+}
+
+th:first-child {
+  background: var(--ac);
+  color: var(--gold-light);
+}
+
+tbody tr:nth-child(even) {
+  background: #FCF7EE;
+}
+
+tbody tr:hover {
+  background: var(--gold-soft);
+}
+
+.y {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+.n {
+  color: var(--bad);
+  font-weight: 700;
+}
+
+/* ============================================
+   IMAGE PREVIEW / MODAL
+============================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(45, 7, 12, 0.92);
+  overflow: auto;
+  padding: 16px;
+  text-align: center;
+}
+
+.overlay img {
+  max-width: 100%;
+  border-radius: 8px;
+  background: #fff;
+  border: 2px solid var(--gold);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.overlay a {
+  background: var(--gold);
+  color: var(--maroon-dark);
+  padding: 9px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 8px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.overlay a:hover {
+  background: var(--gold-light);
+}
+
+/* ============================================
+   LOGIN SCREEN
+============================================ */
+
+.login {
+  max-width: 360px;
+  margin: 12vh auto;
+  padding: 22px 16px;
+  background: var(--card);
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.login h1,
+.login h2 {
+  color: var(--ac);
+}
+
+.login button {
+  width: 100%;
+}
+
+.err {
+  color: var(--bad);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* ============================================
+   SCROLLBAR
+============================================ */
+
+.scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: var(--gold-soft);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+
+@media (max-width: 600px) {
+
+  main {
+    padding: 10px;
+  }
+
+  .banner {
+    margin-bottom: 12px;
+    border-width: 1.5px;
+  }
+
+  h1 {
+    font-size: 1.12rem;
+    padding: 11px;
+  }
+
+  h2 {
+    font-size: 0.98rem;
+  }
+
+  .card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .stat {
+    padding: 10px 6px;
+  }
+
+  .stat b {
+    font-size: 1.1rem;
+  }
+
+  .stat span {
+    font-size: 0.75rem;
+  }
+
+  button {
+    padding: 7px 10px;
+    font-size: 0.85rem;
+  }
+
+  .row {
+    gap: 7px;
+  }
+
+  .m {
+    padding: 10px 0;
+  }
+
+  .login {
+    margin: 9vh auto;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE DEVICES
+============================================ */
+
+@media (max-width: 360px) {
+
+  main {
+    padding: 7px;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .stat b {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+}

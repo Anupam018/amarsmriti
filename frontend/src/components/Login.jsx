@@ -22,12 +22,12 @@ export default function Login({ onDone }) {
 
   return (
     <div className="login">
-      <img className="banner" src="/banner.jpg" alt="পালংপুর অমর স্মৃতি সংঘ" />
+      <img className="banner" src="/banner.jpeg" alt="পালংপুর অমর স্মৃতি সংঘ" />
       <form className="card" onSubmit={submit}>
         <h2>🔒 LOGIN</h2>
         <div className="row">
           <input type="password" placeholder="পাসওয়ার্ড" value={pw} onChange={(e) => setPw(e.target.value)} autoFocus />
-          <button className="p" disabled={busy || !pw}>ঢুকুন</button>
+          <button className="p" disabled={busy || !pw}>Login</button>
         </div>
         {err && <div className="err">{err}</div>}
       </form>

@@ -173,7 +173,7 @@ function Main() {
 
   return (
     <main>
-      <img className="banner" src="/banner.jpg" alt="পালংপুর অমর স্মৃতি সংঘ" />
+      <img className="banner" src="/banner.jpeg" alt="পালংপুর অমর স্মৃতি সংঘ" />
       <h1>
         💰 মাসিক চাঁদা হিসাব{' '}
         <button className="s" style={{ float: 'right' }} onClick={() => { setToken(null); location.reload(); }}>লগআউট</button>
