@@ -1,4 +1,4 @@
-export const MN = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+export const MN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 export const ym = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
 export const mname = (k) => `${MN[+k.slice(5) - 1]} ${k.slice(0, 4)}`;

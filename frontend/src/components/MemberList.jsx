@@ -40,12 +40,12 @@ export default function MemberList({ members, payOf, a }) {
               <button className={'s ' + (p ? '' : 'p')} onClick={() => a.togglePay(x)}>{p ? '❌ জমা মুছুন' : 'জমা নিলাম'}</button>
               {p ? (
                 <>
-                  <button className="s" onClick={() => a.receiptJpg(x)}>🖼 রসিদ JPG</button>
+                  <button className="s" onClick={() => a.receiptJpg(x)}>🖼 Receipt JPG</button>
                   <button className="s" onClick={() => a.receiptXl(x)}>📊 Excel</button>
-                  <button className="s p" onClick={() => a.sendReceipt(x)}>📲 পাঠান</button>
+                  <button className="s p" onClick={() => a.sendReceipt(x)}>📲 Send</button>
                 </>
               ) : (
-                <button className="s" onClick={() => a.wa(x)}>মেসেজ</button>
+                <button className="s" onClick={() => a.wa(x)}>Reminder</button>
               )}
               <button className="s" onClick={() => a.editAmt(x)}>✏️ ₹</button>
               <button className="s" onClick={() => a.delMember(x)}>🗑</button>
